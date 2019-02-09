@@ -1,0 +1,22 @@
+{
+  "name": "touchbistro_challenge",
+  "version": "1.0.0",
+  "description": "Challenge project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harsh6646/TouchBistro_challenge.git"
+  },
+  "author": "Harsh Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harsh6646/TouchBistro_challenge/issues"
+  },
+  "homepage": "https://github.com/harsh6646/TouchBistro_challenge#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
