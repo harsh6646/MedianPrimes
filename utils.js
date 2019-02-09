@@ -1,7 +1,7 @@
 
 module.exports = {
     getPrimeMedian: function (num) {
-        let primes = this.getPrimeList(num);
+        let primes = getPrimeList(num);
         let median = [];
         // integer division by 2 to get mid
         let mid = Math.floor(primes.length / 2);
@@ -11,21 +11,21 @@ module.exports = {
             median = primes.slice(mid, mid + 1);
         }
         return median;
-    },
-
-    getPrimeList: function (num) {
-        let isPrime = new Array(num).fill(0);
-        let primes = [1];
-        for(i = 2; i < num; i++) {
-            let multiple = i + i;
-            while(multiple < num) {
-                isPrime[multiple] = 1; // not prime
-                multiple += i;
-            }
-            if(isPrime[i] == 0) {
-                primes.push(i);
-            }
-        }
-        return primes;
     }
+}
+
+function getPrimeList(num) {
+    let isPrime = new Array(num).fill(0);
+    let primes = [1];
+    for(i = 2; i < num; i++) {
+        let multiple = i + i;
+        while(multiple < num) {
+            isPrime[multiple] = 1; // not prime
+            multiple += i;
+        }
+        if(isPrime[i] == 0) {
+            primes.push(i);
+        }
+    }
+    return primes;
 }
