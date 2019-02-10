@@ -13,8 +13,8 @@ export function getPrimeMedian(num) {
 
 function getPrimeList(num) {
   let isPrime = new Array(num).fill(0);
-  let primes = [1];
-  for (i = 2; i < num; i++) {
+  let primes = [];
+  for (let i = 2; i < num; i++) {
     let multiple = i + i;
     while (multiple < num) {
       isPrime[multiple] = 1; // not prime

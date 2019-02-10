@@ -1,20 +1,22 @@
 import express from "express";
 import { getPrimeMedian } from "./utils";
+import bodyparser from "body-parser";
 const app = express();
-const PORT = 3000;
-// app section
-// serve static
-app.use(express.static(__dirname + "/public"));
+const PORT = 3080;
+
+// set up middleware to extract body data
+app.use(bodyparser.json());
 
 // api section
 // serve the primes
 app.post("/primes", (req, res) => {
-  num = req.body.number;
-  result = {
+  console.log(req.body);
+  const num = req.body.number;
+  const result = {
     median: getPrimeMedian(num)
   };
-
-  res.json(result);
+  console.log(result);
+  res.send(result);
 });
 // start listening on ports
 app.listen(PORT, () => {

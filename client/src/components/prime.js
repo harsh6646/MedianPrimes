@@ -11,17 +11,25 @@ export default class Prime extends Component {
     let number = parseFloat(this.state.input);
     if (isNaN(number)) {
       this.setState({
+        median: [],
         error: "This input is not supported, please enter a integer or float."
       });
     } else {
       number = Math.floor(number);
-      fetch("http://localhost:3000/primes", {
+      fetch("/primes", {
         method: "POST",
-        body: {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
           number: number
-        }
-      }).then(data => {
-        console.log(data);
+        })
+      }).then(res => {
+        res.text().then(data => {
+          const result = JSON.parse(data);
+          this.setState({ median: result.median, error: "" });
+        });
       });
     }
   };
