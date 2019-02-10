@@ -1,5 +1,5 @@
-const express = require("express");
-const utils = require("./utils");
+import express from "express";
+import { getPrimeMedian } from "./utils";
 const app = express();
 const PORT = 3000;
 // app section
@@ -11,7 +11,7 @@ app.use(express.static(__dirname + "/public"));
 app.post("/primes", (req, res) => {
   num = req.body.number;
   result = {
-    median: utils.getPrimeMedian(num)
+    median: getPrimeMedian(num)
   };
 
   res.json(result);
