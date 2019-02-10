@@ -1,5 +1,5 @@
-const express = require('express');
-const utils = require('./utils');
+const express = require("express");
+const utils = require("./utils");
 const app = express();
 const PORT = 3000;
 // app section
@@ -8,15 +8,15 @@ app.use(express.static(__dirname + "/public"));
 
 // api section
 // serve the primes
-app.post('/primes', (req, res) => {
-    num = req.body.number;
-    result = {
-        median: utils.getPrimeMedian(num)
-    }
+app.post("/primes", (req, res) => {
+  num = req.body.number;
+  result = {
+    median: utils.getPrimeMedian(num)
+  };
 
-    res.json(result);
+  res.json(result);
 });
 // start listening on ports
 app.listen(PORT, () => {
-    console.log("Listening on port: " + PORT);
+  console.log("Listening on port: " + PORT);
 });
