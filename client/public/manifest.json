@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Primes",
+  "name": "Find Primes",
   "icons": [
     {
       "src": "favicon.ico",
