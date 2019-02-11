@@ -10,12 +10,10 @@ app.use(bodyparser.json());
 // api section
 // serve the primes
 app.post("/primes", (req, res) => {
-  console.log(req.body);
   const num = req.body.number;
   const result = {
     median: getPrimeMedian(num)
   };
-  console.log(result);
   res.send(result);
 });
 // start listening on ports
