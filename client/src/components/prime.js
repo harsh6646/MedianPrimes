@@ -4,7 +4,8 @@ export default class Prime extends Component {
   state = {
     input: "",
     median: [],
-    error: ""
+    error: "",
+    outputClass: ""
   };
 
   handleGetMedians = () => {
@@ -12,7 +13,8 @@ export default class Prime extends Component {
     if (isNaN(number)) {
       this.setState({
         median: [],
-        error: "This input is not supported, please enter a integer or float."
+        error: "This input is not supported, please enter a integer or float.",
+        outputClass: "col-4 alert alert-warning"
       });
     } else {
       number = Math.floor(number);
@@ -28,7 +30,11 @@ export default class Prime extends Component {
       }).then(res => {
         res.text().then(data => {
           const result = JSON.parse(data);
-          this.setState({ median: result.median, error: "" });
+          this.setState({
+            median: result.median,
+            error: "",
+            outputClass: "col-4 alert alert-success"
+          });
         });
       });
     }
@@ -59,26 +65,49 @@ export default class Prime extends Component {
     this.setState({ input: event.target.value });
   };
 
+  showOutput = () => {
+    let output = "";
+    if (this.state.error) {
+      output = this.showErrors();
+    } else {
+      output = this.showMedians();
+    }
+    return output;
+  };
   render() {
     return (
       <React.Fragment>
-        <h5>Find the median of all the prime(s) beyond your number!</h5>
-        <div>
-          <div>Enter your number:</div>
-          <div>
-            <input
-              id="medianInput"
-              type="text"
-              name="number"
-              placeholder="Enter your number here"
-              onChange={this.handleChange}
-            />
-            <div>
-              <button onClick={this.handleGetMedians}>Find Median!</button>
+        <div class="jumbotron text-center">
+          <h2>Find the median of all the prime(s) beyond your number!</h2>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-2" />
+            <div class="col-6">
+              <label for="number">Enter your number:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="number"
+                name="number"
+                placeholder="Number"
+                onChange={this.handleChange}
+              />
             </div>
+            <div class="col-2">
+              <button class="m-4 btn btn-light" onClick={this.handleGetMedians}>
+                Find Median!
+              </button>
+            </div>
+            <div class="col-2" />
           </div>
-          <div>{this.showMedians()}</div>
-          <div>{this.showErrors()}</div>
+          <div class="row">
+            <div class="col-4" />
+            <div className={this.state.outputClass} id="output">
+              {this.showOutput()}
+            </div>
+            <div class="col-4" />
+          </div>
         </div>
       </React.Fragment>
     );
