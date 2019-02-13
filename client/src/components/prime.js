@@ -10,10 +10,10 @@ export default class Prime extends Component {
 
   handleGetMedians = () => {
     let number = parseFloat(this.state.input);
-    if (isNaN(number)) {
+    if (isNaN(number) || number < 0) {
       this.setState({
         median: [],
-        error: "This input is not supported, please enter a integer or float.",
+        error: "This input is not supported, please enter a positive integer or float.",
         outputClass: "col-4 alert alert-warning"
       });
     } else {
