@@ -77,16 +77,16 @@ export default class Prime extends Component {
   render() {
     return (
       <React.Fragment>
-        <div class="jumbotron text-center">
+        <div className="jumbotron text-center">
           <h2>Find the median of all the prime(s) beyond your number!</h2>
         </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-2" />
-            <div class="col-6">
-              <label for="number">Enter your number:</label>
+        <div className="container">
+          <div className="row">
+            <div className="col-2" />
+            <div className="col-6">
+              <label htmlFor="number">Enter your number:</label>
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 id="number"
                 name="number"
@@ -94,19 +94,22 @@ export default class Prime extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div class="col-2">
-              <button class="m-4 btn btn-light" onClick={this.handleGetMedians}>
+            <div className="col-2">
+              <button
+                className="m-4 btn btn-light"
+                onClick={this.handleGetMedians}
+              >
                 Find Median!
               </button>
             </div>
-            <div class="col-2" />
+            <div className="col-2" />
           </div>
-          <div class="row">
-            <div class="col-4" />
+          <div className="row">
+            <div className="col-4" />
             <div className={this.state.outputClass} id="output">
               {this.showOutput()}
             </div>
-            <div class="col-4" />
+            <div className="col-4" />
           </div>
         </div>
       </React.Fragment>
