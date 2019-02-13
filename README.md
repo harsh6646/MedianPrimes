@@ -27,8 +27,13 @@ npm test
 Get the median primes
 
 Endpoint: `/primes`
+
 Request Type: `POST`
+
 Body Params:
+
 `number`
-type: `<number>`
-required: `True`
+
+    type: `<number>`
+
+    required: `True`
