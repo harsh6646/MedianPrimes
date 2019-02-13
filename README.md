@@ -11,7 +11,11 @@ git clone https://github.com/harsh6646/MedianPrimes.git
 # Nagivate to main folder
 cd MedianPrimes
 # install dependencies
-npm install && cd client && npm install
+npm install
+
+cd client
+
+npm install
 # Starting the servers
 npm start
 ```

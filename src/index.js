@@ -1,6 +1,7 @@
 import express from "express";
 import { getPrimeMedian } from "./utils";
 import bodyparser from "body-parser";
+import { isValid } from "./validNumber";
 const app = express();
 const PORT = 3080;
 
@@ -11,9 +12,15 @@ app.use(bodyparser.json());
 // serve the primes
 app.post("/primes", (req, res) => {
   const num = req.body.number;
-  const result = {
-    median: getPrimeMedian(num)
+  let result = {
+    median: []
   };
+  if(isValid(num)) {
+    result = {
+      median: getPrimeMedian(num)
+    };
+  }
+  
   res.send(result);
 });
 // start listening on ports
