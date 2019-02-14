@@ -17,6 +17,7 @@ cd client
 
 npm install
 # Starting the servers
+# move to root folder, /MedianPrimes using: cd ..
 npm start
 ```
 
